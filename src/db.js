@@ -65,18 +65,52 @@ function saveDb() {
   }
 }
 
-// Log internal activities
-export function addLog(message, type = 'info') {
+// Log listeners for real-time broadcasts
+const logListeners = new Set();
+export function onLog(callback) {
+  logListeners.add(callback);
+  return () => logListeners.delete(callback);
+}
+
+// Log internal activities with date, timestamp, and category
+export function addLog(message, type = 'info', metadata = {}) {
+  const now = new Date();
   const logEntry = {
     id: Date.now() + Math.random().toString(36).substring(2, 6),
-    timestamp: new Date().toISOString(),
+    timestamp: now.toISOString(),
+    formattedTime: now.toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' }),
+    formattedDate: now.toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }),
     message,
-    type
+    type, // 'order', 'packed', 'dispatched', 'deleted', 'revert', 'system', 'info', 'error'
+    metadata
   };
   db.logs.unshift(logEntry);
-  if (db.logs.length > 500) db.logs.pop();
+  if (db.logs.length > 1000) db.logs.pop();
   saveDb();
+
+  // Notify listeners (e.g. SSE stream)
+  for (const listener of logListeners) {
+    try {
+      listener(logEntry);
+    } catch (err) {
+      console.error('[DB] Log listener error:', err);
+    }
+  }
+
   return logEntry;
+}
+
+// Get all logs
+export function getLogs(limit = 300) {
+  return db.logs.slice(0, limit);
+}
+
+// Clear all logs
+export function clearLogs() {
+  db.logs = [];
+  saveDb();
+  addLog('Activity logs cleared by user', 'system');
+  return true;
 }
 
 // Create or update order
@@ -117,7 +151,11 @@ export function saveOrder(orderData) {
   }
 
   saveDb();
-  addLog(`Order ${orderRecord.orderId} (${orderRecord.channel}) saved with status ${orderRecord.status}`);
+  if (existingIndex !== -1) {
+    addLog(`Order ${orderRecord.orderId} (${orderRecord.channel}) details updated`, 'order', { orderId: orderRecord.orderId, channel: orderRecord.channel });
+  } else {
+    addLog(`New order received: ${orderRecord.orderId} (${orderRecord.channel}) for ${orderRecord.customerName} - ${orderRecord.city}`, 'order', { orderId: orderRecord.orderId, channel: orderRecord.channel, customer: orderRecord.customerName });
+  }
 
   // Sync to Supabase in background if configured
   getSupabase().then(sb => {
@@ -188,7 +226,7 @@ export function markAsPacked(orderId, packedBy = 'Packing Team') {
   order.updatedAt = new Date().toISOString();
 
   saveDb();
-  addLog(`Order ${order.orderId} marked as PACKED by ${packedBy}`);
+  addLog(`Order ${order.orderId} (${order.channel}) marked as PACKED by ${packedBy}`, 'packed', { orderId: order.orderId, channel: order.channel, customer: order.customerName, packedBy });
 
   // Sync to Supabase in background
   getSupabase().then(sb => {
@@ -215,7 +253,7 @@ export function markAsDispatched(orderId, courierName = 'Courier Partner') {
   order.updatedAt = new Date().toISOString();
 
   saveDb();
-  addLog(`Order ${order.orderId} marked as DISPATCHED (Handed over to ${courierName})`);
+  addLog(`Order ${order.orderId} (${order.channel}) DISPATCHED — handed to ${courierName}`, 'dispatched', { orderId: order.orderId, channel: order.channel, customer: order.customerName, courierName });
 
   // Sync to Supabase in background
   getSupabase().then(sb => {
@@ -249,17 +287,32 @@ export function revertStatus(orderId, targetStatus = 'pending') {
   }
 
   saveDb();
-  addLog(`Order ${order.orderId} status reverted to ${targetStatus}`);
+  addLog(`Order ${order.orderId} (${order.channel}) status reverted to ${targetStatus}`, 'revert', { orderId: order.orderId, targetStatus });
   return order;
 }
 
 // Delete order
 export function deleteOrder(orderId) {
   const initialLength = db.orders.length;
+  const target = db.orders.find(o => o.orderId === orderId || o.id === orderId);
+  const actualOrderId = target ? target.orderId : orderId;
+  const channel = target ? target.channel : '';
+  const customer = target ? target.customerName : '';
+
   db.orders = db.orders.filter(o => o.orderId !== orderId && o.id !== orderId);
   if (db.orders.length !== initialLength) {
     saveDb();
-    addLog(`Order ${orderId} was removed`);
+    addLog(`Order ${actualOrderId} (${channel || 'General'}) for ${customer || 'Customer'} was permanently deleted`, 'deleted', { orderId: actualOrderId, channel, customer });
+
+    // Sync deletion to Supabase
+    getSupabase().then(sb => {
+      if (sb && sb.isSupabaseConfigured() && typeof sb.deleteOrderFromSupabase === 'function') {
+        sb.deleteOrderFromSupabase(actualOrderId).catch(err => {
+          console.error('[Supabase Delete Sync Error]', err.message);
+        });
+      }
+    });
+
     return true;
   }
   return false;

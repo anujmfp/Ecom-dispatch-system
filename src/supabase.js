@@ -212,6 +212,31 @@ export async function updateOrderStatusInSupabase(orderId, updateFields) {
   }
 }
 
+/**
+ * Delete order from Supabase
+ */
+export async function deleteOrderFromSupabase(orderId) {
+  if (!supabase) return false;
+
+  try {
+    const { error } = await supabase
+      .from('orders')
+      .delete()
+      .eq('order_id', orderId);
+
+    if (error) {
+      console.error('[Supabase DB] Delete error:', error.message);
+      return false;
+    }
+
+    console.log(`[Supabase DB] Deleted order ${orderId}`);
+    return true;
+  } catch (err) {
+    console.error('[Supabase DB] Delete exception:', err.message);
+    return false;
+  }
+}
+
 function mapDbRowToOrder(row) {
   if (!row) return null;
   return {

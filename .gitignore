@@ -7,6 +7,7 @@ node_modules/
 storage/auth_baileys/
 storage/auth_baileys_backup/
 storage/pdfs/
+storage/dispatch_data.json
 *.tmp
 
 # Environment and secrets

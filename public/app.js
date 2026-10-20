@@ -2,8 +2,10 @@
 
 let state = {
   orders: [],
+  logs: [],
   currentStatus: 'pending', // default to "To Pack"
   currentChannel: 'all',
+  currentLogFilter: 'all',
   searchQuery: '',
   stats: { totalOrders: 0, pending: 0, packed: 0, dispatched: 0 },
   selectedOrderForDispatch: null,
@@ -46,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Setup DOM Event Listeners
 function setupEventListeners() {
-  // Status tabs
+  // Status tabs (including Activity Log tab)
   document.querySelectorAll('.status-tab').forEach(btn => {
     btn.addEventListener('click', () => {
       document.querySelectorAll('.status-tab').forEach(b => {
@@ -56,9 +58,61 @@ function setupEventListeners() {
       btn.classList.add('active');
       btn.classList.remove('text-slate-600');
       state.currentStatus = btn.dataset.status;
-      renderOrders();
+
+      const ordersContainer = document.getElementById('ordersContainer');
+      const emptyState = document.getElementById('emptyState');
+      const channelFilterRow = document.getElementById('channelFilterRow');
+      const activitySection = document.getElementById('activitySection');
+
+      if (state.currentStatus === 'activity') {
+        if (ordersContainer) ordersContainer.classList.add('hidden');
+        if (emptyState) emptyState.classList.add('hidden');
+        if (channelFilterRow) channelFilterRow.classList.add('hidden');
+        if (activitySection) activitySection.classList.remove('hidden');
+        fetchLogs();
+      } else {
+        if (ordersContainer) ordersContainer.classList.remove('hidden');
+        if (channelFilterRow) channelFilterRow.classList.remove('hidden');
+        if (activitySection) activitySection.classList.add('hidden');
+        renderOrders();
+      }
     });
   });
+
+  // Log filter buttons
+  document.querySelectorAll('.log-filter').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.log-filter').forEach(b => {
+        b.classList.remove('active', 'bg-slate-900', 'text-white');
+        b.classList.add('bg-slate-100', 'text-slate-700');
+      });
+      btn.classList.add('active', 'bg-slate-900', 'text-white');
+      btn.classList.remove('bg-slate-100', 'text-slate-700');
+      state.currentLogFilter = btn.dataset.filter;
+      renderLogs();
+    });
+  });
+
+  // Refresh and Clear Logs buttons
+  const btnRefreshLogs = document.getElementById('btnRefreshLogs');
+  if (btnRefreshLogs) {
+    btnRefreshLogs.addEventListener('click', () => fetchLogs());
+  }
+
+  const btnClearLogs = document.getElementById('btnClearLogs');
+  if (btnClearLogs) {
+    btnClearLogs.addEventListener('click', async () => {
+      if (confirm('Are you sure you want to clear the activity audit log?')) {
+        try {
+          await fetch('/api/logs/clear', { method: 'POST' });
+          state.logs = [];
+          renderLogs();
+        } catch (e) {
+          console.error('Failed to clear logs:', e);
+        }
+      }
+    });
+  }
 
   // Channel filters
   document.querySelectorAll('.channel-filter').forEach(btn => {
@@ -293,6 +347,22 @@ function setupSSE() {
     const stats = JSON.parse(e.data);
     updateStatsUI(stats);
   });
+
+  eventSource.addEventListener('new_log', (e) => {
+    const log = JSON.parse(e.data);
+    state.logs.unshift(log);
+    if (state.logs.length > 500) state.logs.pop();
+    if (state.currentStatus === 'activity') {
+      renderLogs();
+    }
+  });
+
+  eventSource.addEventListener('logs_cleared', () => {
+    state.logs = [];
+    if (state.currentStatus === 'activity') {
+      renderLogs();
+    }
+  });
 }
 
 // Fetch Orders from API
@@ -417,6 +487,10 @@ function createOrderCardHtml(order) {
         <i data-lucide="truck" class="w-4 h-4"></i>
         <span>Mark as Dispatched</span>
       </button>
+
+      <button onclick="confirmDeleteOrder('${order.orderId}')" title="Delete Order" class="p-2 text-rose-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition" aria-label="Delete order">
+        <i data-lucide="trash-2" class="w-4 h-4"></i>
+      </button>
     `;
   } else if (order.status === 'packed') {
     actionButtonsHtml = `
@@ -433,6 +507,10 @@ function createOrderCardHtml(order) {
       <button onclick="revertOrderStatus('${order.orderId}', 'pending')" title="Revert to Pending" class="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition">
         <i data-lucide="undo-2" class="w-4 h-4"></i>
       </button>
+
+      <button onclick="confirmDeleteOrder('${order.orderId}')" title="Delete Order" class="p-2 text-rose-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition" aria-label="Delete order">
+        <i data-lucide="trash-2" class="w-4 h-4"></i>
+      </button>
     `;
   } else if (order.status === 'dispatched') {
     actionButtonsHtml = `
@@ -448,6 +526,10 @@ function createOrderCardHtml(order) {
 
       <button onclick="revertOrderStatus('${order.orderId}', 'packed')" title="Revert to Packed" class="p-2 text-slate-400 hover:text-slate-600 hover:bg-slate-100 rounded-lg transition">
         <i data-lucide="undo-2" class="w-4 h-4"></i>
+      </button>
+
+      <button onclick="confirmDeleteOrder('${order.orderId}')" title="Delete Order" class="p-2 text-rose-400 hover:text-rose-600 hover:bg-rose-50 rounded-lg transition" aria-label="Delete order">
+        <i data-lucide="trash-2" class="w-4 h-4"></i>
       </button>
     `;
   }
@@ -672,6 +754,129 @@ window.revertOrderStatus = async function(orderId, targetStatus) {
     console.error('Revert error:', err);
   }
 };
+
+// Delete Order with Confirmation
+window.confirmDeleteOrder = async function(orderId) {
+  if (!confirm(`Are you sure you want to permanently delete order "${orderId}"?`)) {
+    return;
+  }
+  try {
+    const res = await fetch(`/api/orders/${encodeURIComponent(orderId)}`, {
+      method: 'DELETE'
+    });
+    const data = await res.json();
+    if (data.success) {
+      state.orders = state.orders.filter(o => o.orderId !== orderId);
+      renderOrders();
+      fetchStats();
+      if (state.currentStatus === 'activity') fetchLogs();
+    } else {
+      alert('Failed to delete order: ' + (data.error || 'Server error'));
+    }
+  } catch (err) {
+    console.error('Delete order error:', err);
+    alert('Network error while deleting order.');
+  }
+};
+
+// Fetch Activity Logs
+async function fetchLogs() {
+  try {
+    const res = await fetch('/api/logs?limit=300');
+    const data = await res.json();
+    if (data.success) {
+      state.logs = data.logs || [];
+      renderLogs();
+    }
+  } catch (err) {
+    console.error('Fetch logs error:', err);
+  }
+}
+
+// Render Activity Logs with exact date, time and status icons
+function renderLogs() {
+  const container = document.getElementById('activityList');
+  const emptyState = document.getElementById('activityEmptyState');
+  if (!container) return;
+
+  let filtered = state.logs || [];
+  if (state.currentLogFilter && state.currentLogFilter !== 'all') {
+    filtered = filtered.filter(l => l.type === state.currentLogFilter);
+  }
+
+  if (filtered.length === 0) {
+    container.innerHTML = '';
+    if (emptyState) emptyState.classList.remove('hidden');
+    return;
+  }
+
+  if (emptyState) emptyState.classList.add('hidden');
+
+  container.innerHTML = filtered.map(log => {
+    let icon = 'info';
+    let iconBg = 'bg-slate-100 text-slate-600';
+    let typeBadge = 'System';
+    let badgeColor = 'bg-slate-100 text-slate-700';
+
+    if (log.type === 'order') {
+      icon = 'inbox';
+      iconBg = 'bg-indigo-50 text-indigo-600';
+      typeBadge = 'Order Received';
+      badgeColor = 'bg-indigo-50 text-indigo-700 border border-indigo-200';
+    } else if (log.type === 'packed') {
+      icon = 'package-check';
+      iconBg = 'bg-amber-50 text-amber-600';
+      typeBadge = 'Packed';
+      badgeColor = 'bg-amber-50 text-amber-700 border border-amber-200';
+    } else if (log.type === 'dispatched') {
+      icon = 'truck';
+      iconBg = 'bg-emerald-50 text-emerald-600';
+      typeBadge = 'Dispatched';
+      badgeColor = 'bg-emerald-50 text-emerald-700 border border-emerald-200';
+    } else if (log.type === 'deleted') {
+      icon = 'trash-2';
+      iconBg = 'bg-rose-50 text-rose-600';
+      typeBadge = 'Deleted';
+      badgeColor = 'bg-rose-50 text-rose-700 border border-rose-200';
+    } else if (log.type === 'revert') {
+      icon = 'undo-2';
+      iconBg = 'bg-purple-50 text-purple-600';
+      typeBadge = 'Reverted';
+      badgeColor = 'bg-purple-50 text-purple-700 border border-purple-200';
+    } else if (log.type === 'error') {
+      icon = 'alert-triangle';
+      iconBg = 'bg-red-50 text-red-600';
+      typeBadge = 'Error';
+      badgeColor = 'bg-red-50 text-red-700 border border-red-200';
+    }
+
+    const timeStr = log.formattedTime || (log.timestamp ? new Date(log.timestamp).toLocaleTimeString('en-IN', { hour: '2-digit', minute: '2-digit', second: '2-digit' }) : '');
+    const dateStr = log.formattedDate || (log.timestamp ? new Date(log.timestamp).toLocaleDateString('en-IN', { day: '2-digit', month: 'short', year: 'numeric' }) : '');
+
+    return `
+      <div class="p-3.5 sm:p-4 hover:bg-slate-50/70 transition flex items-start space-x-3 text-xs sm:text-sm">
+        <div class="w-8 h-8 rounded-lg ${iconBg} flex items-center justify-center shrink-0 mt-0.5">
+          <i data-lucide="${icon}" class="w-4 h-4"></i>
+        </div>
+        <div class="flex-1 min-w-0">
+          <div class="flex flex-wrap items-center gap-2 mb-1">
+            <span class="px-2 py-0.5 rounded-md text-[10px] font-bold uppercase tracking-wider ${badgeColor}">
+              ${typeBadge}
+            </span>
+            <span class="text-[11px] font-mono text-slate-400">
+              ${dateStr} at ${timeStr}
+            </span>
+          </div>
+          <p class="font-medium text-slate-800 break-words leading-relaxed">
+            ${escapeHtml(log.message)}
+          </p>
+        </div>
+      </div>
+    `;
+  }).join('');
+
+  lucide.createIcons();
+}
 
 // Manual PDF Upload Handler
 async function handlePdfUpload(file) {

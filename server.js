@@ -18,7 +18,7 @@ import multer from 'multer';
 import XLSX from 'xlsx';
 import { fileURLToPath } from 'url';
 
-import { initDb, saveOrder, getOrders, getOrderById, getAllOrders, markAsPacked, markAsDispatched, revertStatus, deleteOrder, getStats, getSettings, updateSettings } from './src/db.js';
+import { initDb, saveOrder, getOrders, getOrderById, getAllOrders, markAsPacked, markAsDispatched, revertStatus, deleteOrder, getStats, getSettings, updateSettings, getLogs, clearLogs, onLog } from './src/db.js';
 import { whatsappService } from './src/whatsapp.js';
 import { parseDispatchPdf } from './src/parser.js';
 
@@ -65,6 +65,11 @@ function broadcastEvent(eventType, data) {
 whatsappService.onOrderReceived((order) => {
   broadcastEvent('new_order', order);
   broadcastEvent('stats_update', getStats());
+});
+
+// Subscribe to real-time activity log events
+onLog((logEntry) => {
+  broadcastEvent('new_log', logEntry);
 });
 
 // SSE endpoint
@@ -244,6 +249,26 @@ app.post('/api/settings', (req, res) => {
   try {
     const updated = updateSettings(req.body);
     res.json({ success: true, settings: updated });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+// 14. Activity Logs (Real-time history with timestamps)
+app.get('/api/logs', (req, res) => {
+  try {
+    const limit = parseInt(req.query.limit) || 300;
+    res.json({ success: true, logs: getLogs(limit) });
+  } catch (err) {
+    res.status(500).json({ success: false, error: err.message });
+  }
+});
+
+app.post('/api/logs/clear', (req, res) => {
+  try {
+    clearLogs();
+    broadcastEvent('logs_cleared', {});
+    res.json({ success: true, message: 'Activity logs cleared' });
   } catch (err) {
     res.status(500).json({ success: false, error: err.message });
   }
