@@ -1,0 +1,25 @@
+{
+  "name": "dispatch-management-system",
+  "version": "1.0.0",
+  "description": "Automated Dispatch Management System with WhatsApp group PDF ingestion, multi-marketplace parsing (Amazon, Flipkart, JioMart), and live packing & dispatch dashboard.",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node --watch server.js"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.109.0",
+    "@whiskeysockets/baileys": "^6.7.9",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "multer": "^1.4.5-lts.1",
+    "pdf-lib": "^1.17.1",
+    "pdf-parse": "^1.1.1",
+    "pdf2json": "^4.0.3",
+    "pino": "^9.6.0",
+    "qrcode": "^1.5.4",
+    "xlsx": "^0.18.5"
+  }
+}

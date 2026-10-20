@@ -1,0 +1,91 @@
+/* DispatchPro Custom Styles */
+
+body {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Status tabs active state */
+.status-tab.active {
+  background-color: #ffffff;
+  color: #0f172a;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.08), 0 1px 2px -1px rgba(0, 0, 0, 0.08);
+}
+
+/* Card hover animation */
+.order-card {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.order-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px -2px rgba(15, 23, 42, 0.08);
+}
+
+/* Channel badge styling */
+.badge-amazon {
+  background-color: #fef3c7;
+  color: #92400e;
+  border: 1px solid #fde68a;
+}
+
+.badge-flipkart {
+  background-color: #dbeafe;
+  color: #1e40af;
+  border: 1px solid #bfdbfe;
+}
+
+.badge-jiomart {
+  background-color: #dcfce7;
+  color: #166534;
+  border: 1px solid #bbf7d0;
+}
+
+.badge-meesho {
+  background-color: #fce7f3;
+  color: #9d174d;
+  border: 1px solid #fbcfe8;
+}
+
+.badge-other {
+  background-color: #f1f5f9;
+  color: #475569;
+  border: 1px solid #e2e8f0;
+}
+
+/* Status indicators */
+.status-pill-pending {
+  background-color: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fef3c7;
+}
+
+.status-pill-packed {
+  background-color: #eff6ff;
+  color: #1d4ed8;
+  border: 1px solid #dbeafe;
+}
+
+.status-pill-dispatched {
+  background-color: #ecfdf5;
+  color: #047857;
+  border: 1px solid #d1fae5;
+}
+
+/* Print optimizations */
+@media print {
+  header, .status-tab, .channel-filter, #btnWhatsappModal, #btnUploadModal, #btnCreateDemo, .no-print {
+    display: none !important;
+  }
+
+  body {
+    background-color: #ffffff !important;
+  }
+
+  .order-card {
+    break-inside: avoid;
+    box-shadow: none !important;
+    border: 1px solid #cccccc !important;
+    margin-bottom: 20px;
+  }
+}

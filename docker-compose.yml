@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  dispatch-pro:
+    build: .
+    container_name: dispatch-pro
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+      - NODE_ENV=production
+    volumes:
+      - ./storage:/app/storage

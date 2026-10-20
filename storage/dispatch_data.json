@@ -1,0 +1,1404 @@
+{
+  "orders": [
+    {
+      "id": "1792481700356",
+      "orderId": "403-9218248-5051553",
+      "channel": "Amazon",
+      "customerName": "Ashish Upadhyay",
+      "city": "Mathura",
+      "state": "Uttar Pradesh",
+      "pincode": "281004",
+      "address": "Ashish Upadhyay, Ashish Upadhyay, Uttar Pradesh Gramin Bank, 17 A Radha Nagar, 10724997000146, Madhuban Hotel ke samne, MATHURA, UTTAR PRADESH, 281004, IN, 09, Place of supply:",
+      "items": [
+        {
+          "title": "truFLAVR Cheese Peri Peri Seasoning (Jain)",
+          "quantity": 1,
+          "sku": "B0GW39LJ3J"
+        }
+      ],
+      "itemsSummary": "truFLAVR Cheese Peri Peri Seasoning (Jain) (x1)",
+      "totalAmount": 94,
+      "trackingNumber": "",
+      "pdfFilename": "403-9218248-5051553_1792481700354.pdf",
+      "pdfPath": "/api/orders/pdf/403-9218248-5051553_1792481700354.pdf",
+      "status": "pending",
+      "source": "whatsapp",
+      "createdAt": "2026-10-20T07:35:00.356Z",
+      "updatedAt": "2026-10-20T07:41:43.257Z",
+      "packedAt": null,
+      "packedBy": null,
+      "dispatchedAt": null,
+      "courierName": null,
+      "notes": ""
+    },
+    {
+      "id": "1792480761732",
+      "orderId": "406-2421719-9251540",
+      "channel": "Amazon",
+      "customerName": "Rupali Girme",
+      "city": "Pune",
+      "state": "Maharashtra",
+      "pincode": "411046",
+      "address": "Rupali Girme, Rupali Girme, Aasmant Society, Jambhulwadi Road, Ambegaon, Khurd, B404, PUNE, MAHARASHTRA, 411046, IN, 27, 10724997000146",
+      "items": [
+        {
+          "title": "truFLAVR Bombay Sandwich Masala",
+          "quantity": 1,
+          "sku": "B0GW3DK5MF"
+        }
+      ],
+      "itemsSummary": "truFLAVR Bombay Sandwich Masala (x1)",
+      "totalAmount": 94,
+      "trackingNumber": "",
+      "pdfFilename": "406-2421719-9251540_1792480761731.pdf",
+      "pdfPath": "/api/orders/pdf/406-2421719-9251540_1792480761731.pdf",
+      "status": "dispatched",
+      "source": "whatsapp",
+      "createdAt": "2026-10-20T07:19:21.732Z",
+      "updatedAt": "2026-10-20T07:41:43.261Z",
+      "packedAt": "2026-10-20T07:22:44.342Z",
+      "packedBy": "Packing Team",
+      "dispatchedAt": "2026-10-20T07:24:07.773Z",
+      "courierName": "Amazon Easy Ship",
+      "notes": ""
+    },
+    {
+      "id": "1792471097487",
+      "orderId": "OD337147348145246300",
+      "channel": "Flipkart",
+      "customerName": "Amit Verma",
+      "city": "Mumbai",
+      "state": "Maharashtra",
+      "pincode": "400053",
+      "address": "B-12, Sundar Nagar, Andheri West, Mumbai, Maharashtra - 400053",
+      "items": [
+        {
+          "title": "Men Slim Fit Casual Cotton Shirt - Navy Blue (Size 42)",
+          "quantity": 1,
+          "sku": "SHIRT-NB-42"
+        }
+      ],
+      "itemsSummary": "Men Slim Fit Casual Cotton Shirt - Navy Blue (Size 42) (x1)",
+      "trackingNumber": "FMPC3557049076",
+      "pdfFilename": "",
+      "pdfPath": "",
+      "status": "dispatched",
+      "source": "whatsapp",
+      "createdAt": "2026-10-20T04:38:17.487Z",
+      "updatedAt": "2026-10-20T07:22:53.864Z",
+      "packedAt": null,
+      "packedBy": null,
+      "dispatchedAt": "2026-10-20T07:22:53.864Z",
+      "courierName": "Amazon Easy Ship",
+      "notes": ""
+    },
+    {
+      "id": "1792418555653",
+      "orderId": "402-8877665-1122334",
+      "channel": "Amazon",
+      "customerName": "Vikramaditya Sharma",
+      "city": "Chandigarh",
+      "state": "Punjab",
+      "pincode": "160022",
+      "address": "Ship To:, Vikramaditya Sharma, House No 104, Royal Palms, Sector 21, Chandigarh, Punjab - 160022, Phone: 9811223344, ---------------------------------------------------------------------------------",
+      "items": [
+        {
+          "title": "Wireless Bluetooth ANC Over-Ear Headphones (Silver)   1",
+          "quantity": 1,
+          "sku": "B09XY99881"
+        },
+        {
+          "title": "Fast USB-C GaN Wall Charger 65W                       2",
+          "quantity": 1,
+          "sku": "B08AB11223"
+        }
+      ],
+      "itemsSummary": "Wireless Bluetooth ANC Over-Ear Headphones (Silver)   1 (x1), Fast USB-C GaN Wall Charger 65W                       2 (x1)",
+      "trackingNumber": "ATS7766554433",
+      "pdfFilename": "402-8877665-1122334_1792418555637.pdf",
+      "pdfPath": "/api/orders/pdf/402-8877665-1122334_1792418555637.pdf",
+      "status": "dispatched",
+      "source": "manual_upload",
+      "createdAt": "2026-10-19T14:02:35.651Z",
+      "updatedAt": "2026-10-20T07:23:04.005Z",
+      "packedAt": null,
+      "packedBy": null,
+      "dispatchedAt": "2026-10-20T07:23:04.005Z",
+      "courierName": "Local Courier / Driver",
+      "notes": ""
+    },
+    {
+      "id": "1792416977146",
+      "orderId": "JM8760745988",
+      "channel": "JioMart",
+      "customerName": "Sunita Patel",
+      "city": "Ahmedabad",
+      "state": "Gujarat",
+      "pincode": "380015",
+      "address": "15, Shanti Niketan Society, Satellite, Ahmedabad, Gujarat - 380015",
+      "items": [
+        {
+          "title": "Organic Cold Pressed Mustard Oil (1 Litre)",
+          "quantity": 2,
+          "sku": "OIL-MUST-1L"
+        },
+        {
+          "title": "Basmati Rice Premium Extra Long Grain (5 Kg)",
+          "quantity": 1,
+          "sku": "RICE-BASM-5K"
+        }
+      ],
+      "itemsSummary": "Organic Cold Pressed Mustard Oil (1 Litre) (x2), Basmati Rice Premium Extra Long Grain (5 Kg) (x1)",
+      "trackingNumber": "DEL7700771860",
+      "pdfFilename": "",
+      "pdfPath": "",
+      "status": "dispatched",
+      "source": "whatsapp",
+      "createdAt": "2026-10-19T13:36:17.145Z",
+      "updatedAt": "2026-10-19T13:36:17.316Z",
+      "packedAt": "2026-10-19T13:36:17.302Z",
+      "packedBy": "Warehouse Team 1",
+      "dispatchedAt": "2026-10-19T13:36:17.316Z",
+      "courierName": "Amazon EasyShip",
+      "notes": ""
+    }
+  ],
+  "settings": {
+    "whatsapp_group_name": "MFP orders group",
+    "auto_print_enabled": false,
+    "sound_alerts": true,
+    "filter_group": true
+  },
+  "logs": [
+    {
+      "id": "1792482156078n7hv",
+      "timestamp": "2026-10-20T07:42:36.078Z",
+      "message": "WhatsApp connected successfully as Anuj Shah",
+      "type": "info"
+    },
+    {
+      "id": "1792482153978zncl",
+      "timestamp": "2026-10-20T07:42:33.978Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792482103263iaml",
+      "timestamp": "2026-10-20T07:41:43.263Z",
+      "message": "Order 406-2421719-9251540 (Amazon) saved with status dispatched",
+      "type": "info"
+    },
+    {
+      "id": "1792482103260mkhc",
+      "timestamp": "2026-10-20T07:41:43.260Z",
+      "message": "Order 403-9218248-5051553 (Amazon) saved with status pending",
+      "type": "info"
+    },
+    {
+      "id": "1792481700360y58f",
+      "timestamp": "2026-10-20T07:35:00.360Z",
+      "message": "Order 403-9218248-5051553 (Amazon) saved with status pending",
+      "type": "info"
+    },
+    {
+      "id": "1792481699780d2w7",
+      "timestamp": "2026-10-20T07:34:59.780Z",
+      "message": "Received PDF \"AmazonFile_0.pdf\" in WhatsApp group \"MFP orders group\"",
+      "type": "info"
+    },
+    {
+      "id": "1792481675053eqlu",
+      "timestamp": "2026-10-20T07:34:35.053Z",
+      "message": "WhatsApp connected successfully as 919920679092:36@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792481672356aia3",
+      "timestamp": "2026-10-20T07:34:32.356Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792481668346phz6",
+      "timestamp": "2026-10-20T07:34:28.346Z",
+      "message": "WhatsApp disconnected (515). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "17924816385186u4i",
+      "timestamp": "2026-10-20T07:33:58.518Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792481637063nx0a",
+      "timestamp": "2026-10-20T07:33:57.063Z",
+      "message": "WhatsApp account logged out successfully.",
+      "type": "info"
+    },
+    {
+      "id": "1792481636916z9o6",
+      "timestamp": "2026-10-20T07:33:56.916Z",
+      "message": "WhatsApp logged out. Please rescan QR code.",
+      "type": "warn"
+    },
+    {
+      "id": "1792481636914pgx1",
+      "timestamp": "2026-10-20T07:33:56.914Z",
+      "message": "WhatsApp disconnected (401). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "179248145766667t5",
+      "timestamp": "2026-10-20T07:30:57.666Z",
+      "message": "WhatsApp connected successfully as Anuj Shah",
+      "type": "info"
+    },
+    {
+      "id": "1792481455430is8p",
+      "timestamp": "2026-10-20T07:30:55.430Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792481319717ngty",
+      "timestamp": "2026-10-20T07:28:39.717Z",
+      "message": "WhatsApp connected successfully as Anuj Shah",
+      "type": "info"
+    },
+    {
+      "id": "17924813174554f46",
+      "timestamp": "2026-10-20T07:28:37.455Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "17924810477749im9",
+      "timestamp": "2026-10-20T07:24:07.774Z",
+      "message": "Order 406-2421719-9251540 marked as DISPATCHED (Handed over to Amazon Easy Ship)",
+      "type": "info"
+    },
+    {
+      "id": "179248098400773wu",
+      "timestamp": "2026-10-20T07:23:04.007Z",
+      "message": "Order 402-8877665-1122334 marked as DISPATCHED (Handed over to Local Courier / Driver)",
+      "type": "info"
+    },
+    {
+      "id": "1792480973866o5jx",
+      "timestamp": "2026-10-20T07:22:53.866Z",
+      "message": "Order OD337147348145246300 marked as DISPATCHED (Handed over to Amazon Easy Ship)",
+      "type": "info"
+    },
+    {
+      "id": "17924809643456a91",
+      "timestamp": "2026-10-20T07:22:44.345Z",
+      "message": "Order 406-2421719-9251540 marked as PACKED by Packing Team",
+      "type": "info"
+    },
+    {
+      "id": "1792480779751oc11",
+      "timestamp": "2026-10-20T07:19:39.751Z",
+      "message": "WhatsApp connected successfully as Anuj Shah",
+      "type": "info"
+    },
+    {
+      "id": "1792480776345f9bo",
+      "timestamp": "2026-10-20T07:19:36.345Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792480761734832f",
+      "timestamp": "2026-10-20T07:19:21.734Z",
+      "message": "Order 406-2421719-9251540 (Amazon) saved with status pending",
+      "type": "info"
+    },
+    {
+      "id": "1792480761566l1k9",
+      "timestamp": "2026-10-20T07:19:21.566Z",
+      "message": "Order 406-2421719-9251540Invoice was removed",
+      "type": "info"
+    },
+    {
+      "id": "17924804278085dnf",
+      "timestamp": "2026-10-20T07:13:47.808Z",
+      "message": "Order 406-2421719-9251540Invoice (Amazon) saved with status pending",
+      "type": "info"
+    },
+    {
+      "id": "1792479145452xqw3",
+      "timestamp": "2026-10-20T06:52:25.452Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "17924791313154bcb",
+      "timestamp": "2026-10-20T06:52:11.315Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471281716kv7v",
+      "timestamp": "2026-10-20T04:41:21.716Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471281219tkcj",
+      "timestamp": "2026-10-20T04:41:21.219Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471281180wf94",
+      "timestamp": "2026-10-20T04:41:21.180Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "17924712795708uj5",
+      "timestamp": "2026-10-20T04:41:19.570Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471278385mv18",
+      "timestamp": "2026-10-20T04:41:18.385Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471277930l0f5",
+      "timestamp": "2026-10-20T04:41:17.930Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "17924712777040nrl",
+      "timestamp": "2026-10-20T04:41:17.704Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "179247127756209bp",
+      "timestamp": "2026-10-20T04:41:17.562Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "179247127710396xe",
+      "timestamp": "2026-10-20T04:41:17.103Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471276871ns2l",
+      "timestamp": "2026-10-20T04:41:16.871Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471276476e3nm",
+      "timestamp": "2026-10-20T04:41:16.476Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471275439pg1o",
+      "timestamp": "2026-10-20T04:41:15.439Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471274873ad2q",
+      "timestamp": "2026-10-20T04:41:14.873Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471274460cmmj",
+      "timestamp": "2026-10-20T04:41:14.460Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471273933waea",
+      "timestamp": "2026-10-20T04:41:13.933Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "17924712734344dyt",
+      "timestamp": "2026-10-20T04:41:13.434Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471273300w2d2",
+      "timestamp": "2026-10-20T04:41:13.300Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471273153qkp7",
+      "timestamp": "2026-10-20T04:41:13.153Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471272863xs5r",
+      "timestamp": "2026-10-20T04:41:12.863Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471271976m023",
+      "timestamp": "2026-10-20T04:41:11.976Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471271100vfzk",
+      "timestamp": "2026-10-20T04:41:11.100Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "17924712699695n2m",
+      "timestamp": "2026-10-20T04:41:09.969Z",
+      "message": "WhatsApp disconnected (428). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "17924712697579y92",
+      "timestamp": "2026-10-20T04:41:09.757Z",
+      "message": "WhatsApp connected successfully as Anuj Shah",
+      "type": "info"
+    },
+    {
+      "id": "1792471269282357h",
+      "timestamp": "2026-10-20T04:41:09.282Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471269201lzrh",
+      "timestamp": "2026-10-20T04:41:09.202Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "17924712690931c7d",
+      "timestamp": "2026-10-20T04:41:09.093Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471268055ip3n",
+      "timestamp": "2026-10-20T04:41:08.055Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471267706ab3v",
+      "timestamp": "2026-10-20T04:41:07.706Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "17924712661142erw",
+      "timestamp": "2026-10-20T04:41:06.114Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "179247126597244ru",
+      "timestamp": "2026-10-20T04:41:05.972Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471265704e7sy",
+      "timestamp": "2026-10-20T04:41:05.704Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "179247126569928fp",
+      "timestamp": "2026-10-20T04:41:05.699Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "17924712651957k8c",
+      "timestamp": "2026-10-20T04:41:05.195Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471264174p6lg",
+      "timestamp": "2026-10-20T04:41:04.174Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471263295a02y",
+      "timestamp": "2026-10-20T04:41:03.295Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471262170gfkc",
+      "timestamp": "2026-10-20T04:41:02.170Z",
+      "message": "WhatsApp disconnected (428). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471261968nqqu",
+      "timestamp": "2026-10-20T04:41:01.968Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471261956c5iv",
+      "timestamp": "2026-10-20T04:41:01.956Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471261308ug0v",
+      "timestamp": "2026-10-20T04:41:01.308Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471261291pp8c",
+      "timestamp": "2026-10-20T04:41:01.291Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471261220utje",
+      "timestamp": "2026-10-20T04:41:01.220Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "179247125947049wp",
+      "timestamp": "2026-10-20T04:40:59.470Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471258877kd17",
+      "timestamp": "2026-10-20T04:40:58.877Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471257803b63f",
+      "timestamp": "2026-10-20T04:40:57.803Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471257302jjag",
+      "timestamp": "2026-10-20T04:40:57.302Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471256866tzbr",
+      "timestamp": "2026-10-20T04:40:56.866Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471255893comv",
+      "timestamp": "2026-10-20T04:40:55.893Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471255836xt0v",
+      "timestamp": "2026-10-20T04:40:55.836Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "17924712554931b2n",
+      "timestamp": "2026-10-20T04:40:55.493Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471255466a89f",
+      "timestamp": "2026-10-20T04:40:55.466Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471253821omsy",
+      "timestamp": "2026-10-20T04:40:53.821Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471253194jbdm",
+      "timestamp": "2026-10-20T04:40:53.194Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471251126jtqe",
+      "timestamp": "2026-10-20T04:40:51.126Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471248561u8md",
+      "timestamp": "2026-10-20T04:40:48.561Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471248185w15j",
+      "timestamp": "2026-10-20T04:40:48.185Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471247486otmu",
+      "timestamp": "2026-10-20T04:40:47.486Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471247189gm0k",
+      "timestamp": "2026-10-20T04:40:47.189Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471246042i1uy",
+      "timestamp": "2026-10-20T04:40:46.042Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471245777t31w",
+      "timestamp": "2026-10-20T04:40:45.777Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471244556ahch",
+      "timestamp": "2026-10-20T04:40:44.556Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "17924712440336hvy",
+      "timestamp": "2026-10-20T04:40:44.033Z",
+      "message": "WhatsApp disconnected (428). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471243727pqp9",
+      "timestamp": "2026-10-20T04:40:43.727Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471242543zpvq",
+      "timestamp": "2026-10-20T04:40:42.543Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "17924712419220bwq",
+      "timestamp": "2026-10-20T04:40:41.922Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471241095t5sr",
+      "timestamp": "2026-10-20T04:40:41.095Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471240535wdoy",
+      "timestamp": "2026-10-20T04:40:40.535Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471240396uc91",
+      "timestamp": "2026-10-20T04:40:40.396Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "179247123975702sc",
+      "timestamp": "2026-10-20T04:40:39.757Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471239440rks2",
+      "timestamp": "2026-10-20T04:40:39.441Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471238694qq86",
+      "timestamp": "2026-10-20T04:40:38.694Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "17924712379166mi5",
+      "timestamp": "2026-10-20T04:40:37.916Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471237423f70n",
+      "timestamp": "2026-10-20T04:40:37.423Z",
+      "message": "WhatsApp disconnected (428). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471237148hl73",
+      "timestamp": "2026-10-20T04:40:37.148Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471236204id8k",
+      "timestamp": "2026-10-20T04:40:36.204Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471235471glsm",
+      "timestamp": "2026-10-20T04:40:35.471Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471234626p9kx",
+      "timestamp": "2026-10-20T04:40:34.626Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471234192zk8m",
+      "timestamp": "2026-10-20T04:40:34.192Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471233162ph44",
+      "timestamp": "2026-10-20T04:40:33.162Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471233006wqmu",
+      "timestamp": "2026-10-20T04:40:33.006Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471232680pwp6",
+      "timestamp": "2026-10-20T04:40:32.680Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471231493v7in",
+      "timestamp": "2026-10-20T04:40:31.493Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "17924712314529vn2",
+      "timestamp": "2026-10-20T04:40:31.452Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471231002ikq9",
+      "timestamp": "2026-10-20T04:40:31.002Z",
+      "message": "WhatsApp disconnected (428). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471230731lv7s",
+      "timestamp": "2026-10-20T04:40:30.731Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "179247123006687ue",
+      "timestamp": "2026-10-20T04:40:30.066Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471229035xo7n",
+      "timestamp": "2026-10-20T04:40:29.035Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "17924712286448xkq",
+      "timestamp": "2026-10-20T04:40:28.644Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471228058v6gm",
+      "timestamp": "2026-10-20T04:40:28.058Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471226636fjx1",
+      "timestamp": "2026-10-20T04:40:26.636Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471224025pn7a",
+      "timestamp": "2026-10-20T04:40:24.025Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471223489ea75",
+      "timestamp": "2026-10-20T04:40:23.489Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471223025dal8",
+      "timestamp": "2026-10-20T04:40:23.025Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "17924712226292uzf",
+      "timestamp": "2026-10-20T04:40:22.629Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471222268wo4v",
+      "timestamp": "2026-10-20T04:40:22.268Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471221895n1xj",
+      "timestamp": "2026-10-20T04:40:21.895Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471221347vug5",
+      "timestamp": "2026-10-20T04:40:21.347Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471220250aci3",
+      "timestamp": "2026-10-20T04:40:20.250Z",
+      "message": "WhatsApp disconnected (428). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471219940kv11",
+      "timestamp": "2026-10-20T04:40:19.940Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471219883hvkc",
+      "timestamp": "2026-10-20T04:40:19.883Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "17924712187809x3g",
+      "timestamp": "2026-10-20T04:40:18.780Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471218121ua9e",
+      "timestamp": "2026-10-20T04:40:18.121Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "17924712173508gr1",
+      "timestamp": "2026-10-20T04:40:17.350Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "17924712167720804",
+      "timestamp": "2026-10-20T04:40:16.772Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471215686mnfh",
+      "timestamp": "2026-10-20T04:40:15.686Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471213826fjpy",
+      "timestamp": "2026-10-20T04:40:13.826Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471213338wxcn",
+      "timestamp": "2026-10-20T04:40:13.338Z",
+      "message": "WhatsApp disconnected (440). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "17924712121054qhx",
+      "timestamp": "2026-10-20T04:40:12.105Z",
+      "message": "WhatsApp disconnected (408). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471211901lkpi",
+      "timestamp": "2026-10-20T04:40:11.901Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471211677sew3",
+      "timestamp": "2026-10-20T04:40:11.677Z",
+      "message": "WhatsApp disconnected (408). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "179247120989605ut",
+      "timestamp": "2026-10-20T04:40:09.896Z",
+      "message": "WhatsApp disconnected (408). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471097492hfal",
+      "timestamp": "2026-10-20T04:38:17.492Z",
+      "message": "Order OD337147348145246300 (Flipkart) saved with status pending",
+      "type": "info"
+    },
+    {
+      "id": "1792471088993naii",
+      "timestamp": "2026-10-20T04:38:08.993Z",
+      "message": "System settings updated",
+      "type": "info"
+    },
+    {
+      "id": "1792471078443s3fx",
+      "timestamp": "2026-10-20T04:37:58.443Z",
+      "message": "WhatsApp connected successfully as 919920679092:35@s.whatsapp.net",
+      "type": "info"
+    },
+    {
+      "id": "1792471075347iibl",
+      "timestamp": "2026-10-20T04:37:55.347Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471073337p7wr",
+      "timestamp": "2026-10-20T04:37:53.337Z",
+      "message": "WhatsApp disconnected (515). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792471052902w7wx",
+      "timestamp": "2026-10-20T04:37:32.902Z",
+      "message": "System settings updated",
+      "type": "info"
+    },
+    {
+      "id": "1792471051600xu3b",
+      "timestamp": "2026-10-20T04:37:31.600Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792471051182hnu9",
+      "timestamp": "2026-10-20T04:37:31.182Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "17924710500727wcx",
+      "timestamp": "2026-10-20T04:37:30.072Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "179247104532033hf",
+      "timestamp": "2026-10-20T04:37:25.320Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792418583384pukj",
+      "timestamp": "2026-10-19T14:03:03.384Z",
+      "message": "Order ORD-317077 was removed",
+      "type": "info"
+    },
+    {
+      "id": "1792418583246k39c",
+      "timestamp": "2026-10-19T14:03:03.246Z",
+      "message": "Order ORD-478080 was removed",
+      "type": "info"
+    },
+    {
+      "id": "17924185556558pef",
+      "timestamp": "2026-10-19T14:02:35.655Z",
+      "message": "Order 402-8877665-1122334 (Amazon) saved with status pending",
+      "type": "info"
+    },
+    {
+      "id": "1792418361170r5e7",
+      "timestamp": "2026-10-19T13:59:21.170Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792418335168f6ur",
+      "timestamp": "2026-10-19T13:58:55.168Z",
+      "message": "WhatsApp disconnected (408). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792418335126kl9t",
+      "timestamp": "2026-10-19T13:58:55.126Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792418311109y1rb",
+      "timestamp": "2026-10-19T13:58:31.109Z",
+      "message": "WhatsApp disconnected (408). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "179241831107532yi",
+      "timestamp": "2026-10-19T13:58:31.075Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792418289068lk8t",
+      "timestamp": "2026-10-19T13:58:09.068Z",
+      "message": "WhatsApp disconnected (408). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792418289036qjq0",
+      "timestamp": "2026-10-19T13:58:09.036Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792418269035xi6j",
+      "timestamp": "2026-10-19T13:57:49.035Z",
+      "message": "WhatsApp disconnected (408). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792418269004ojsa",
+      "timestamp": "2026-10-19T13:57:49.004Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792418250987r4p3",
+      "timestamp": "2026-10-19T13:57:30.987Z",
+      "message": "WhatsApp disconnected (428). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792418200664kzz7",
+      "timestamp": "2026-10-19T13:56:40.664Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792418184658pmy2",
+      "timestamp": "2026-10-19T13:56:24.658Z",
+      "message": "WhatsApp disconnected (428). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792418153010ecwd",
+      "timestamp": "2026-10-19T13:55:53.010Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "17924181390036ocb",
+      "timestamp": "2026-10-19T13:55:39.003Z",
+      "message": "WhatsApp disconnected (408). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792418123362eryw",
+      "timestamp": "2026-10-19T13:55:23.362Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792418111356rsgv",
+      "timestamp": "2026-10-19T13:55:11.356Z",
+      "message": "WhatsApp disconnected (408). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "17924179498834swk",
+      "timestamp": "2026-10-19T13:52:29.883Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792417939871pvm4",
+      "timestamp": "2026-10-19T13:52:19.871Z",
+      "message": "WhatsApp disconnected (408). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792417778164d5n7",
+      "timestamp": "2026-10-19T13:49:38.164Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792417770146il4a",
+      "timestamp": "2026-10-19T13:49:30.146Z",
+      "message": "WhatsApp disconnected (428). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792417687909bwl8",
+      "timestamp": "2026-10-19T13:48:07.909Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792417681900fx25",
+      "timestamp": "2026-10-19T13:48:01.901Z",
+      "message": "WhatsApp disconnected (408). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792417520778wl4k",
+      "timestamp": "2026-10-19T13:45:20.778Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792417516759kbad",
+      "timestamp": "2026-10-19T13:45:16.759Z",
+      "message": "WhatsApp disconnected (408). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "17924174780831yg8",
+      "timestamp": "2026-10-19T13:44:38.083Z",
+      "message": "Order ORD-478080 (Other Marketplace) saved with status pending",
+      "type": "info"
+    },
+    {
+      "id": "1792417355478u2tp",
+      "timestamp": "2026-10-19T13:42:35.478Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792417353472rhj4",
+      "timestamp": "2026-10-19T13:42:33.472Z",
+      "message": "WhatsApp disconnected (428). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "179241731708132ji",
+      "timestamp": "2026-10-19T13:41:57.081Z",
+      "message": "Order ORD-317077 (Other Marketplace) saved with status pending",
+      "type": "info"
+    },
+    {
+      "id": "1792417242262vzfz",
+      "timestamp": "2026-10-19T13:40:42.262Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792417201920ms1v",
+      "timestamp": "2026-10-19T13:40:01.920Z",
+      "message": "WhatsApp disconnected (500). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "179241720170300fe",
+      "timestamp": "2026-10-19T13:40:01.703Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792417181699t52c",
+      "timestamp": "2026-10-19T13:39:41.699Z",
+      "message": "WhatsApp disconnected (500). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792417181548v0w8",
+      "timestamp": "2026-10-19T13:39:41.548Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792417163542h6ko",
+      "timestamp": "2026-10-19T13:39:23.542Z",
+      "message": "WhatsApp disconnected (500). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792417163291h7ro",
+      "timestamp": "2026-10-19T13:39:23.291Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792417147270x5yp",
+      "timestamp": "2026-10-19T13:39:07.270Z",
+      "message": "WhatsApp disconnected (500). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792417146950efnt",
+      "timestamp": "2026-10-19T13:39:06.950Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "17924171329454h2d",
+      "timestamp": "2026-10-19T13:38:52.945Z",
+      "message": "WhatsApp disconnected (500). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "17924171326115bvv",
+      "timestamp": "2026-10-19T13:38:52.611Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792417120607fzh4",
+      "timestamp": "2026-10-19T13:38:40.607Z",
+      "message": "WhatsApp disconnected (500). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792417097076nbxp",
+      "timestamp": "2026-10-19T13:38:17.076Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "17924170870717ejv",
+      "timestamp": "2026-10-19T13:38:07.071Z",
+      "message": "WhatsApp disconnected (500). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792417086881zk38",
+      "timestamp": "2026-10-19T13:38:06.881Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792417078872bvlo",
+      "timestamp": "2026-10-19T13:37:58.872Z",
+      "message": "WhatsApp disconnected (500). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792417078684o2se",
+      "timestamp": "2026-10-19T13:37:58.684Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792417072676h889",
+      "timestamp": "2026-10-19T13:37:52.676Z",
+      "message": "WhatsApp disconnected (500). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "17924170724560llq",
+      "timestamp": "2026-10-19T13:37:52.456Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "179241706844341zp",
+      "timestamp": "2026-10-19T13:37:48.443Z",
+      "message": "WhatsApp disconnected (500). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "1792417068309hucc",
+      "timestamp": "2026-10-19T13:37:48.309Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "1792417066297uo5h",
+      "timestamp": "2026-10-19T13:37:46.297Z",
+      "message": "WhatsApp disconnected (500). Attempting reconnect...",
+      "type": "warn"
+    },
+    {
+      "id": "17924170647748gyg",
+      "timestamp": "2026-10-19T13:37:44.774Z",
+      "message": "WhatsApp Service: Starting connection...",
+      "type": "info"
+    },
+    {
+      "id": "17924169773172ikx",
+      "timestamp": "2026-10-19T13:36:17.317Z",
+      "message": "Order JM8760745988 marked as DISPATCHED (Handed over to Amazon EasyShip)",
+      "type": "info"
+    },
+    {
+      "id": "1792416977303di0v",
+      "timestamp": "2026-10-19T13:36:17.303Z",
+      "message": "Order JM8760745988 marked as PACKED by Warehouse Team 1",
+      "type": "info"
+    },
+    {
+      "id": "1792416977148lh7h",
+      "timestamp": "2026-10-19T13:36:17.148Z",
+      "message": "Order JM8760745988 (JioMart) saved with status pending",
+      "type": "info"
+    }
+  ]
+}

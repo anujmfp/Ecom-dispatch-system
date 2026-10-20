@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DispatchPro - E-Commerce Dispatch & Packing Management</title>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <!-- QRCode Generator -->
+  <script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.3/build/qrcode.min.js"></script>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body class="bg-slate-50 text-slate-900 font-['Plus_Jakarta_Sans',sans-serif] min-h-screen flex flex-col">
+
+  <!-- Top Navbar -->
+  <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-16">
+        
+        <!-- Brand -->
+        <div class="flex items-center space-x-3">
+          <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-indigo-600 to-blue-700 flex items-center justify-center text-white shadow-md shadow-indigo-100">
+            <i data-lucide="package-check" class="w-6 h-6"></i>
+          </div>
+          <div>
+            <div class="flex items-center space-x-2">
+              <span class="text-xl font-bold tracking-tight text-slate-900">Dispatch<span class="text-indigo-600">Pro</span></span>
+              <span class="px-2 py-0.5 text-xs font-semibold bg-indigo-50 text-indigo-700 rounded-full border border-indigo-200">v1.0</span>
+            </div>
+            <p class="text-xs text-slate-500 font-medium">Amazon • Flipkart • JioMart Dispatch Hub</p>
+          </div>
+        </div>
+
+        <!-- WhatsApp Connection Pill, Mobile Access & Actions -->
+        <div class="flex items-center space-x-2 sm:space-x-3">
+          
+          <!-- Mobile / Factory Link Pill -->
+          <button id="btnMobileModal" class="inline-flex items-center space-x-1.5 px-2.5 sm:px-3 py-1.5 rounded-lg bg-indigo-50 hover:bg-indigo-100 text-indigo-700 border border-indigo-200 text-xs font-bold transition">
+            <i data-lucide="smartphone" class="w-3.5 h-3.5 text-indigo-600"></i>
+            <span class="hidden sm:inline">Mobile Link</span>
+          </button>
+
+          <!-- WhatsApp Status Pill -->
+          <button id="btnWhatsappModal" class="flex items-center space-x-2 px-3 py-1.5 rounded-full border border-slate-200 bg-slate-50 hover:bg-slate-100 transition text-xs font-medium">
+            <span id="waStatusDot" class="w-2.5 h-2.5 rounded-full bg-amber-400 animate-pulse"></span>
+            <span id="waStatusText" class="text-slate-700">WhatsApp: Checking...</span>
+          </button>
+
+          <!-- Upload PDF Label -->
+          <button id="btnUploadModal" class="inline-flex items-center space-x-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-300 text-slate-700 hover:bg-slate-50 text-xs sm:text-sm font-semibold transition shadow-xs">
+            <i data-lucide="upload-cloud" class="w-4 h-4 text-slate-500"></i>
+            <span class="hidden sm:inline">Upload PDF</span>
+          </button>
+
+          <!-- Demo Test Order -->
+          <button id="btnCreateDemo" class="inline-flex items-center space-x-1.5 px-3.5 py-1.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white text-xs sm:text-sm font-semibold transition shadow-sm shadow-indigo-200">
+            <i data-lucide="plus-circle" class="w-4 h-4"></i>
+            <span>Test Order</span>
+          </button>
+
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Area -->
+  <main class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6 flex-1 w-full">
+    
+    <!-- Stats Row -->
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 mb-6">
+      
+      <!-- Total Orders -->
+      <div class="bg-white rounded-xl p-4 border border-slate-200 shadow-xs flex items-center justify-between">
+        <div>
+          <p class="text-xs font-medium text-slate-500 uppercase tracking-wider">Total Received</p>
+          <h3 id="statTotal" class="text-2xl font-extrabold text-slate-900 mt-0.5">0</h3>
+          <p class="text-[11px] text-slate-400 mt-0.5">All channel orders</p>
+        </div>
+        <div class="w-11 h-11 rounded-lg bg-slate-100 text-slate-600 flex items-center justify-center">
+          <i data-lucide="inbox" class="w-5 h-5"></i>
+        </div>
+      </div>
+
+      <!-- Pending Packing -->
+      <div class="bg-white rounded-xl p-4 border border-amber-200 shadow-xs flex items-center justify-between relative overflow-hidden">
+        <div class="absolute left-0 top-0 bottom-0 w-1 bg-amber-500"></div>
+        <div>
+          <p class="text-xs font-semibold text-amber-700 uppercase tracking-wider">To Pack</p>
+          <h3 id="statPending" class="text-2xl font-extrabold text-amber-600 mt-0.5">0</h3>
+          <p class="text-[11px] text-amber-600/80 mt-0.5">Waiting for packing</p>
+        </div>
+        <div class="w-11 h-11 rounded-lg bg-amber-50 text-amber-600 flex items-center justify-center">
+          <i data-lucide="package" class="w-5 h-5"></i>
+        </div>
+      </div>
+
+      <!-- Packed / Ready -->
+      <div class="bg-white rounded-xl p-4 border border-blue-200 shadow-xs flex items-center justify-between relative overflow-hidden">
+        <div class="absolute left-0 top-0 bottom-0 w-1 bg-blue-500"></div>
+        <div>
+          <p class="text-xs font-semibold text-blue-700 uppercase tracking-wider">Ready for Pickup</p>
+          <h3 id="statPacked" class="text-2xl font-extrabold text-blue-600 mt-0.5">0</h3>
+          <p class="text-[11px] text-blue-600/80 mt-0.5">Packed & labeled</p>
+        </div>
+        <div class="w-11 h-11 rounded-lg bg-blue-50 text-blue-600 flex items-center justify-center">
+          <i data-lucide="check-circle-2" class="w-5 h-5"></i>
+        </div>
+      </div>
+
+      <!-- Dispatched Today -->
+      <div class="bg-white rounded-xl p-4 border border-emerald-200 shadow-xs flex items-center justify-between relative overflow-hidden">
+        <div class="absolute left-0 top-0 bottom-0 w-1 bg-emerald-500"></div>
+        <div>
+          <p class="text-xs font-semibold text-emerald-700 uppercase tracking-wider">Dispatched</p>
+          <h3 id="statDispatched" class="text-2xl font-extrabold text-emerald-600 mt-0.5">0</h3>
+          <p class="text-[11px] text-emerald-600/80 mt-0.5">Handed to delivery partner</p>
+        </div>
+        <div class="w-11 h-11 rounded-lg bg-emerald-50 text-emerald-600 flex items-center justify-center">
+          <i data-lucide="truck" class="w-5 h-5"></i>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Filter & Search Toolbar -->
+    <div class="bg-white rounded-xl border border-slate-200 p-4 mb-6 shadow-xs">
+      
+      <!-- Top Row: Status Tabs + Search -->
+      <div class="flex flex-col md:flex-row md:items-center md:justify-between gap-4 mb-4">
+        
+        <!-- Status Tabs -->
+        <div class="flex items-center space-x-1.5 p-1 bg-slate-100 rounded-lg overflow-x-auto text-xs sm:text-sm font-semibold">
+          <button class="status-tab active px-3.5 py-1.5 rounded-md transition" data-status="pending">
+            <span>To Pack</span>
+            <span id="tabBadgePending" class="ml-1.5 px-1.5 py-0.2 bg-amber-200 text-amber-800 rounded-full text-xs">0</span>
+          </button>
+          <button class="status-tab px-3.5 py-1.5 rounded-md transition text-slate-600 hover:text-slate-900" data-status="packed">
+            <span>Ready for Pickup</span>
+            <span id="tabBadgePacked" class="ml-1.5 px-1.5 py-0.2 bg-blue-200 text-blue-800 rounded-full text-xs">0</span>
+          </button>
+          <button class="status-tab px-3.5 py-1.5 rounded-md transition text-slate-600 hover:text-slate-900" data-status="dispatched">
+            <span>Dispatched</span>
+            <span id="tabBadgeDispatched" class="ml-1.5 px-1.5 py-0.2 bg-emerald-200 text-emerald-800 rounded-full text-xs">0</span>
+          </button>
+          <button class="status-tab px-3.5 py-1.5 rounded-md transition text-slate-600 hover:text-slate-900" data-status="all">
+            <span>All Orders</span>
+          </button>
+        </div>
+
+        <!-- Search Input & Excel Export -->
+        <div class="flex items-center space-x-2 w-full md:w-auto">
+          <div class="relative flex-1 md:w-72">
+            <i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>
+            <input type="text" id="searchInput" placeholder="Search orders, buyer, city..." class="w-full pl-9 pr-4 py-2 text-sm bg-slate-50 border border-slate-200 rounded-lg focus:outline-hidden focus:ring-2 focus:ring-indigo-500 focus:bg-white transition">
+          </div>
+
+          <!-- Export to Excel Button -->
+          <button id="btnExportExcel" class="inline-flex items-center space-x-1.5 px-3 py-2 rounded-lg bg-emerald-600 hover:bg-emerald-700 text-white text-xs sm:text-sm font-bold transition shadow-xs shrink-0" title="Export all orders to Excel file">
+            <i data-lucide="file-spreadsheet" class="w-4 h-4"></i>
+            <span class="hidden sm:inline">Export Excel</span>
+          </button>
+        </div>
+
+      </div>
+
+      <!-- Bottom Row: Marketplace Filters -->
+      <div class="flex flex-wrap items-center justify-between gap-2 pt-3 border-t border-slate-100 text-xs font-medium">
+        <div class="flex flex-wrap items-center gap-1.5">
+          <span class="text-slate-400 mr-1">Channel:</span>
+          <button class="channel-filter active px-2.5 py-1 rounded-md bg-slate-900 text-white" data-channel="all">All</button>
+          <button class="channel-filter px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 hover:bg-slate-200" data-channel="Amazon">
+            <span class="inline-block w-2 h-2 rounded-full bg-amber-500 mr-1"></span>Amazon
+          </button>
+          <button class="channel-filter px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 hover:bg-slate-200" data-channel="Flipkart">
+            <span class="inline-block w-2 h-2 rounded-full bg-blue-500 mr-1"></span>Flipkart
+          </button>
+          <button class="channel-filter px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 hover:bg-slate-200" data-channel="JioMart">
+            <span class="inline-block w-2 h-2 rounded-full bg-green-500 mr-1"></span>JioMart
+          </button>
+          <button class="channel-filter px-2.5 py-1 rounded-md bg-slate-100 text-slate-700 hover:bg-slate-200" data-channel="Meesho">
+            <span class="inline-block w-2 h-2 rounded-full bg-pink-500 mr-1"></span>Meesho
+          </button>
+        </div>
+
+        <div class="flex items-center space-x-2 text-slate-500">
+          <span id="resultsCount">0 orders found</span>
+          <button id="btnRefresh" class="p-1 rounded-md hover:bg-slate-100 transition" title="Refresh orders">
+            <i data-lucide="rotate-cw" class="w-4 h-4"></i>
+          </button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Orders Cards Grid / List -->
+    <div id="ordersContainer" class="space-y-3">
+      <!-- Order cards will be dynamically injected here -->
+    </div>
+
+    <!-- Empty State -->
+    <div id="emptyState" class="hidden text-center py-16 bg-white rounded-2xl border border-dashed border-slate-300 p-8">
+      <div class="w-16 h-16 mx-auto mb-4 rounded-full bg-indigo-50 text-indigo-500 flex items-center justify-center">
+        <i data-lucide="package-open" class="w-8 h-8"></i>
+      </div>
+      <h3 class="text-lg font-bold text-slate-800">No orders here</h3>
+      <p class="text-sm text-slate-500 max-w-md mx-auto mt-1 mb-5">Share dispatch label PDFs in your WhatsApp group or click below to upload directly.</p>
+      <div class="flex justify-center space-x-3">
+        <button onclick="document.getElementById('btnUploadModal').click()" class="px-4 py-2 rounded-lg bg-indigo-600 text-white font-medium text-sm hover:bg-indigo-700 transition">
+          Upload PDF Label
+        </button>
+        <button onclick="document.getElementById('btnCreateDemo').click()" class="px-4 py-2 rounded-lg bg-slate-100 text-slate-700 font-medium text-sm hover:bg-slate-200 transition">
+          Generate Test Order
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- WhatsApp Pairing & Settings Modal -->
+  <div id="modalWhatsapp" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative border border-slate-100">
+      
+      <button id="btnCloseWaModal" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center">
+          <i data-lucide="smartphone" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">WhatsApp Integration</h3>
+          <p class="text-xs text-slate-500">Auto-download PDFs shared in your WhatsApp group</p>
+        </div>
+      </div>
+
+      <!-- QR Code Display Box -->
+      <div id="waQrBox" class="text-center p-4 bg-slate-50 rounded-xl border border-slate-200 mb-4">
+        <div id="waQrContainer" class="flex justify-center mb-3">
+          <div class="w-52 h-52 bg-white p-2 rounded-lg border border-slate-200 flex items-center justify-center">
+            <span class="text-xs text-slate-400">Loading QR code...</span>
+          </div>
+        </div>
+        <p class="text-xs font-semibold text-slate-700">Scan this QR Code in WhatsApp</p>
+        <p class="text-[11px] text-slate-500 mt-0.5">Open WhatsApp on your phone &gt; Linked Devices &gt; Link a Device</p>
+      </div>
+
+      <!-- Connected State Box -->
+      <div id="waConnectedBox" class="hidden text-center p-5 bg-emerald-50 rounded-xl border border-emerald-200 mb-4">
+        <div class="w-12 h-12 bg-emerald-100 text-emerald-600 rounded-full flex items-center justify-center mx-auto mb-2">
+          <i data-lucide="check" class="w-6 h-6"></i>
+        </div>
+        <h4 class="font-bold text-emerald-900">WhatsApp is Connected!</h4>
+        <p id="waConnectedUser" class="text-xs text-emerald-700 mt-0.5">Listening for incoming dispatch PDFs in group</p>
+      </div>
+
+      <!-- Group Filter Input -->
+      <div class="space-y-3 mb-4">
+        <div>
+          <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-1">Target WhatsApp Group Name</label>
+          <input type="text" id="targetGroupNameInput" placeholder="e.g. Packing Team or Orders Dispatch" class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-hidden focus:ring-2 focus:ring-emerald-500">
+          <p class="text-[11px] text-slate-400 mt-1">Leave blank to monitor all groups, or type your group's exact title.</p>
+        </div>
+      </div>
+
+      <div class="flex items-center justify-between pt-3 border-t border-slate-100">
+        <button id="btnSaveWaSettings" class="px-4 py-2 bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-semibold rounded-lg transition">
+          Save Settings
+        </button>
+        <button id="btnReconnectWa" class="px-3 py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 text-xs font-semibold rounded-lg transition">
+          Refresh QR / Reconnect
+        </button>
+        <button id="btnLogoutWa" class="px-3 py-2 text-red-600 hover:bg-red-50 text-xs font-semibold rounded-lg transition">
+          Logout
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Manual Upload Modal -->
+  <div id="modalUpload" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-md w-full p-6 shadow-2xl relative border border-slate-100">
+      
+      <button id="btnCloseUploadModal" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="flex items-center space-x-3 mb-4">
+        <div class="w-10 h-10 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center">
+          <i data-lucide="file-up" class="w-5 h-5"></i>
+        </div>
+        <div>
+          <h3 class="text-lg font-bold text-slate-900">Upload Dispatch PDF</h3>
+          <p class="text-xs text-slate-500">Drag and drop shipping label / invoice PDF</p>
+        </div>
+      </div>
+
+      <!-- Drag & Drop Area -->
+      <div id="dropZone" class="border-2 border-dashed border-slate-300 hover:border-indigo-500 hover:bg-indigo-50/40 rounded-xl p-8 text-center cursor-pointer transition mb-4">
+        <i data-lucide="upload-cloud" class="w-10 h-10 text-slate-400 mx-auto mb-3"></i>
+        <p class="text-sm font-semibold text-slate-700">Click to browse or drop PDF here</p>
+        <p class="text-xs text-slate-400 mt-1">Amazon, Flipkart, JioMart or other label PDFs</p>
+        <input type="file" id="pdfFileInput" accept="application/pdf" class="hidden">
+      </div>
+
+      <div id="uploadStatusText" class="text-xs text-center text-slate-500 mb-2"></div>
+
+    </div>
+  </div>
+
+  <!-- Mark Dispatched Modal (Courier Pickup) -->
+  <div id="modalDispatch" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl relative border border-slate-100">
+      
+      <button id="btnCloseDispatchModal" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center mx-auto mb-3">
+        <i data-lucide="truck" class="w-6 h-6"></i>
+      </div>
+
+      <h3 class="text-center text-base font-bold text-slate-900">Handover to Delivery Partner</h3>
+      <p id="dispatchOrderSubtitle" class="text-center text-xs text-slate-500 mt-0.5 mb-4">Order: 402-1234567-8901234</p>
+
+      <div class="space-y-3 mb-5">
+        <div>
+          <label class="block text-xs font-semibold text-slate-700 mb-1">Courier / Delivery Partner</label>
+          <select id="courierSelect" class="w-full px-3 py-2 text-sm border border-slate-300 rounded-lg focus:outline-hidden focus:ring-2 focus:ring-emerald-500">
+            <option value="Amazon Easy Ship">Amazon Easy Ship / ATS</option>
+            <option value="Ekart Logistics">Ekart Logistics (Flipkart)</option>
+            <option value="Delhivery">Delhivery</option>
+            <option value="BlueDart">BlueDart</option>
+            <option value="Shadowfax">Shadowfax</option>
+            <option value="Xpressbees">Xpressbees</option>
+            <option value="Local Courier / Driver">Local Courier / Driver</option>
+            <option value="Customer Self Pickup">Customer Self Pickup</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="flex space-x-2">
+        <button id="btnCancelDispatch" class="w-1/2 py-2 rounded-lg border border-slate-300 text-slate-700 text-xs font-semibold hover:bg-slate-50 transition">
+          Cancel
+        </button>
+        <button id="btnConfirmDispatch" class="w-1/2 py-2 rounded-lg bg-emerald-600 text-white text-xs font-semibold hover:bg-emerald-700 transition">
+          Confirm Pickup
+        </button>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Mobile Access QR Code Modal -->
+  <div id="modalMobile" class="fixed inset-0 bg-slate-900/60 backdrop-blur-xs z-50 hidden flex items-center justify-center p-4">
+    <div class="bg-white rounded-2xl max-w-sm w-full p-6 shadow-2xl relative border border-slate-100">
+      
+      <button id="btnCloseMobileModal" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 p-1">
+        <i data-lucide="x" class="w-5 h-5"></i>
+      </button>
+
+      <div class="w-12 h-12 rounded-xl bg-indigo-50 text-indigo-600 flex items-center justify-center mx-auto mb-3">
+        <i data-lucide="smartphone" class="w-6 h-6"></i>
+      </div>
+
+      <h3 class="text-center text-base font-bold text-slate-900">Mobile / Factory Access</h3>
+      <p class="text-center text-xs text-slate-500 mt-0.5 mb-4">Scan with your phone to open the packing station on mobile</p>
+
+      <div class="bg-slate-50 p-4 rounded-xl border border-slate-200 text-center mb-4">
+        <div id="mobileQrContainer" class="flex justify-center mb-2">
+          <!-- QR code rendered here -->
+          <div class="w-44 h-44 bg-white rounded-lg border border-slate-200 flex items-center justify-center text-xs text-slate-400">
+            Generating QR...
+          </div>
+        </div>
+        <p class="text-[11px] text-slate-500">Connected to factory Wi-Fi</p>
+      </div>
+
+      <div class="space-y-2 mb-4">
+        <label class="block text-[11px] font-bold text-slate-500 uppercase tracking-wider">Direct Network URL</label>
+        <div class="flex items-center space-x-1.5">
+          <input type="text" id="mobileUrlInput" readonly class="w-full px-3 py-2 text-xs font-mono bg-slate-100 border border-slate-200 rounded-lg select-all">
+          <button id="btnCopyMobileUrl" class="px-3 py-2 bg-slate-900 text-white rounded-lg text-xs font-semibold shrink-0 hover:bg-slate-800 transition">
+            Copy
+          </button>
+        </div>
+      </div>
+
+      <p class="text-[11px] text-slate-400 text-center">💡 Tip: Tap "Add to Home Screen" on your mobile browser for a full app experience.</p>
+
+    </div>
+  </div>
+
+  <!-- Audio Chimes for Alerts -->
+  <audio id="audioNewOrder" preload="auto" src="data:audio/wav;base64,UklGRnoGAABXQVZFZm10IBAAAAABAAEAQB8AAEAfAAABAAgAZGF0YQoGAACBhYqFbF1fdJivrJBhNjVgodDbqWE2NWWi2/O/eD5FaZ7R6s59Rk5qotHtvXhCUmmgz+3Le0VSaZ/P6716P1Fnm9DtuHVAT2yczeq3cT5GZ5jM6rNvODlflsvkr2kxMFaMydyeYS4sTY/E4plPKR9DhL7dk0UjGTR9r9aDOh0cLn6w0pM8HRgpdKjNjjwaFixwo8p7OhIVKH+twXowEQsc"></audio>
+
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,19 @@
+services:
+  - type: web
+    name: dispatchpro
+    env: node
+    plan: free
+    region: singapore
+    buildCommand: npm install
+    startCommand: node server.js
+    envVars:
+      - key: NODE_VERSION
+        value: 20.18.0
+      - key: NODE_TLS_REJECT_UNAUTHORIZED
+        value: "0"
+      - key: PORT
+        value: 3000
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
